@@ -4,45 +4,54 @@ import java.util.Scanner;
 public class TictactoeGame {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        ticTacToe t=new ticTacToe();
-
-        System.out.println("ENTER THE CHOISE!");
-        System.out.println("1.Play with Friend");
-        System.out.println("2.Play with Ai");
-        int choise=sc.nextInt();
-        sc.close();
-        ticTacToe.Display();
-        humanPlayer p1 =new humanPlayer("PLAYER 1",'X');
-        Player p2;
-        if(choise==1){
-            p2=new humanPlayer("PLAYER 2",'O');
-        }else{
-            p2=new aiPlayer("AI",'O');
-        }
-        Player cp;
-        cp=p1;
-
-        while(true){
-            System.out.println(cp.name+" Turns");
-            cp.makeMove();
+        // ticTacToe t=new ticTacToe();
+        int b=0;
+        while(b!=2){
+            System.out.println("ENTER THE CHOISE!");
+            System.out.println("1.Play with Friend");
+            System.out.println("2.Play with Ai");
+            int choise=sc.nextInt();
             ticTacToe.Display();
-            if (ticTacToe.checkColWin()||ticTacToe.checkRowWin()||ticTacToe.checkDiagWin()){
-                System.out.println(cp.name+" Has won");
-                break;
+            humanPlayer p1 =new humanPlayer("PLAYER 1",'X');
+            Player p2;
+            if(choise==1){
+                p2=new humanPlayer("PLAYER 2",'O');
+            }else{
+                p2=new aiPlayer("AI",'O');
             }
-            else if (ticTacToe.checkDraw()){
-                System.out.println("Game is Draw");
-                break;
-            }
-            else{
-                if(cp==p1){
-                    cp=p2;
-                }else{
-                    cp=p1;
+            Player cp;
+            cp=p1;
+
+            while(true){
+                System.out.println(cp.name+" Turns");
+                cp.makeMove();
+                ticTacToe.Display();
+                if (ticTacToe.checkColWin()||ticTacToe.checkRowWin()||ticTacToe.checkDiagWin()){
+                    System.out.println(cp.name+" Has won");
+                    break;
+                }
+                else if (ticTacToe.checkDraw()){
+                    System.out.println("Game over(No moves possible)");
+                    break;
+                }
+                else{
+                    if(cp==p1){
+                        cp=p2;
+                    }else{
+                        cp=p1;
+                    }
                 }
             }
-
+            System.out .println("1.Restart the game");
+            System.out.print("2. Stop the Game");
+            b=sc.nextInt();
+            if(b!=1&&b!=2){
+                System.out.println("Invalid Choice");
+                break;
+            }
         }
+        sc.close();
+
     }
 }
 class ticTacToe{
@@ -136,8 +145,6 @@ class humanPlayer extends Player{
         }while (!isvValidMove(row, cols));
         ticTacToe.placeMark(row,cols,mark);
         scan.close();
-    
-
 
     }
 }
@@ -159,7 +166,7 @@ class aiPlayer extends Player{
 
         }while (!isvValidMove(row, cols));
         ticTacToe.placeMark(row,cols,mark);
-
+        scan.close();
 
     }
 }
