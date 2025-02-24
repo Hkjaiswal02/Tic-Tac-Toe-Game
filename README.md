@@ -18,3 +18,13 @@ This is a simple **Tic-Tac-Toe** game implemented in Java. The game allows two m
 2. **Compile the Java file** using:
    ```sh
    javac TicTacGame.java
+
+## Game Preview
+-------------
+| X | O | X |
+-------------
+| O | X | O |
+-------------
+| O | X | X |
+-------------
+
