@@ -11,7 +11,7 @@ public class TictactoeGame {
         System.out.println("2.Play with Ai");
         int choise=sc.nextInt();
         sc.close();
-        t.Display();
+        ticTacToe.Display();
         humanPlayer p1 =new humanPlayer("PLAYER 1",'X');
         Player p2;
         if(choise==1){
