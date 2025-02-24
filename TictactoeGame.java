@@ -10,6 +10,7 @@ public class TictactoeGame {
         System.out.println("1.Play with Friend");
         System.out.println("2.Play with Ai");
         int choise=sc.nextInt();
+        sc.close();
         t.Display();
         humanPlayer p1 =new humanPlayer("PLAYER 1",'X');
         Player p2;
@@ -134,6 +135,7 @@ class humanPlayer extends Player{
             cols=scan.nextInt();
         }while (!isvValidMove(row, cols));
         ticTacToe.placeMark(row,cols,mark);
+        scan.close();
     
 
 
