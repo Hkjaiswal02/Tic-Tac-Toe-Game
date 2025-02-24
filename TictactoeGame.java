@@ -134,6 +134,7 @@ class humanPlayer extends Player{
             cols=scan.nextInt();
         }while (!isvValidMove(row, cols));
         ticTacToe.placeMark(row,cols,mark);
+    
 
 
     }
